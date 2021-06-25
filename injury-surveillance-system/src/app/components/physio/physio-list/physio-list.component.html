@@ -1,1 +1,26 @@
-<p>physio-list works!</p>
+<p>Physio List</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name & Surname</th>
+            <th>Email</th>
+            <th>Mobile Phone</th>
+        </tr>
+        <tr *ngFor="let physio of physios">
+            <td>
+                <a [routerLink]="['/edit', physio.id]">{{physio.id}}</a>
+            </td>
+            <td>
+                {{physio.name}} {{physio.surname}}
+            </td>
+            <td>
+                {{physio.email}}
+            </td>
+            <td>
+                {{physio.mobile}}
+            </td>
+        </tr>
+    </table>
+</div>
