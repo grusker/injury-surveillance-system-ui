@@ -17,11 +17,8 @@ export class PhysioListComponent implements OnInit {
 
   getPhysios() {
     this.physioService.getPhysios().subscribe(
-      (data:any) => {
+      (data: any) => {
         this.physios = data;
-      },
-      error => {
-        const x = error;
       }
     )
   }

@@ -12,6 +12,8 @@ import { PhysioService } from './services/physio/physio.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderInterceptor } from './interceptors/HeaderInterceptor';
+import { AthleteCreateComponent } from './components/athlete/athlete-create/athlete-create.component';
+import { AthleteListComponent } from './components/athlete/athlete-list/athlete-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HeaderInterceptor } from './interceptors/HeaderInterceptor';
     HomeComponent,
     PhysioListComponent,
     PhysioCreateComponent,
-    PhysioEditComponent
+    PhysioEditComponent,
+    AthleteListComponent,
+    AthleteCreateComponent
   ],
   imports: [
     BrowserModule,

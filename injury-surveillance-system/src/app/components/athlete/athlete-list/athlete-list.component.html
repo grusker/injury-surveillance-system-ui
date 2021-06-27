@@ -1,0 +1,53 @@
+<p>Athlete List</p>
+
+<div class="row">
+    <div class="link-column">
+        <a class="btn btn-primary" routerLink="/">Home</a>
+    </div>
+    <div class="link-column">
+        <a class="btn btn-primary" routerLink="/athlete-create">Create Athlete</a>
+    </div>
+</div>
+
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name & Surname</th>
+            <th>Email</th>
+            <th>Mobile Phone</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Sex</th>
+            <th>Dominant Side</th>
+        </tr>
+        <tr *ngFor="let athlete of athletes">
+            <td>
+                {{athlete.id}}
+                <!--<a [routerLink]="['/edit', physio.id]">{{physio.id}}</a>-->
+            </td>
+            <td>
+                {{athlete.name}} {{athlete.surname}}
+            </td>
+            <td>
+                {{athlete.email}}
+            </td>
+            <td>
+                {{athlete.mobile}}
+            </td>
+            <td>
+                {{athlete.height}}
+            </td>
+            <td>
+                {{athlete.weight}}
+            </td>
+            <td>
+                {{athlete.sex}}
+            </td>
+            <td>
+                {{athlete.dominantSide}}
+            </td>
+        </tr>
+    </table>
+</div>

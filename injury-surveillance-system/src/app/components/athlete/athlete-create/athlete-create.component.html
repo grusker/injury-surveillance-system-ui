@@ -1,0 +1,37 @@
+<p>Create Athlete</p>
+
+<div class="row">
+  <div class="link-column">
+      <a class="btn btn-primary" routerLink="/athlete-list">Athlete List</a>
+  </div>
+</div>
+
+<div class="container">
+    <form [formGroup]="athleteForm" (ngSubmit)="createAthlete()">
+      <div *ngIf="validMessage != ''">
+        <h3 class="has-info">{{validMessage}}</h3>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" formControlName="name" required /><br>
+        <label for="surname">Surname:</label>
+        <input type="text" class="form-control" formControlName="surname" required /><br>
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" formControlName="email" required /><br>
+        <label for="mobile">Mobile Phone:</label>
+        <input type="text" class="form-control" formControlName="mobile" required /><br>
+        <label for="height">Height:</label>
+        <input type="number" class="form-control" formControlName="height" required /><br>
+        <label for="weight">Weight:</label>
+        <input type="number" class="form-control" formControlName="weight" required /><br>
+        <label for="sex">Gender:</label>
+        <input type="text" class="form-control" formControlName="sex" required /><br>
+        <label for="dominantSide">Dominant Side:</label>
+        <input type="text" class="form-control" formControlName="dominantSide" required /><br>
+        <label for="physioId">Physioterapist:</label>
+        <input type="number" class="form-control" formControlName="physioId" required /><br>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
