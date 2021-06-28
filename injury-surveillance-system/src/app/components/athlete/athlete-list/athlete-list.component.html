@@ -21,6 +21,7 @@
             <th>Weight</th>
             <th>Sex</th>
             <th>Dominant Side</th>
+            <th>Physioterapist</th>
         </tr>
         <tr *ngFor="let athlete of athletes">
             <td>
@@ -47,6 +48,9 @@
             </td>
             <td>
                 {{athlete.dominantSide}}
+            </td>
+            <td>
+                {{athlete.physioterapist.name}} {{athlete.physioterapist.surname}}
             </td>
         </tr>
     </table>

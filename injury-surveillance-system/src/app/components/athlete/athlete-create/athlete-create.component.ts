@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AthleteRequest } from 'src/app/models/AthleteRequest';
+import { BodySide } from 'src/app/models/BodySide';
+import { Sex } from 'src/app/models/Sex';
 import { AthleteService } from 'src/app/services/athlete/athlete.service';
+import { PhysioService } from 'src/app/services/physio/physio.service';
 
 @Component({
   selector: 'app-athlete-create',
@@ -12,7 +15,11 @@ export class AthleteCreateComponent implements OnInit {
   athleteForm: FormGroup;
   validMessage = '';
 
-  constructor(private athleteService: AthleteService) { }
+  physioList = [];
+  sexEnum=[];
+  dominantSideEnum=[];
+
+  constructor(private athleteService: AthleteService, private physioService: PhysioService) { }
 
   ngOnInit(): void {
     this.athleteForm = new FormGroup({
@@ -26,6 +33,15 @@ export class AthleteCreateComponent implements OnInit {
       dominantSide: new FormControl('', Validators.required),
       physioId: new FormControl('', Validators.required)
     });
+
+    this.physioService.getPhysios().subscribe(
+      (data: any) => {
+        this.physioList = data;
+      }
+    )
+
+    this.sexEnum = Object.keys(Sex);
+    this.dominantSideEnum = Object.keys(BodySide);
   }
 
   createAthlete() {
@@ -37,8 +53,8 @@ export class AthleteCreateComponent implements OnInit {
       athleteRequest.mobile = this.athleteForm.get("mobile").value;
       athleteRequest.height = this.athleteForm.get("height").value;
       athleteRequest.weight = this.athleteForm.get("weight").value;
-      athleteRequest.sex = this.athleteForm.get("sex").value;
-      athleteRequest.dominantSide = this.athleteForm.get("dominantSide").value;
+      athleteRequest.sex = Sex[this.athleteForm.get("sex").value];
+      athleteRequest.dominantSide = BodySide[this.athleteForm.get("dominantSide").value];
       athleteRequest.physioId = this.athleteForm.get("physioId").value;
 
       this.athleteService.createAthlete(athleteRequest).subscribe(
