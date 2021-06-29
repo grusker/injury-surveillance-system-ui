@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AthleteRequest } from 'src/app/models/AthleteRequest';
 import { BodySide } from 'src/app/models/BodySide';
-import { Sex } from 'src/app/models/Sex';
+import { Gender } from 'src/app/models/Gender';
 import { AthleteService } from 'src/app/services/athlete/athlete.service';
 import { PhysioService } from 'src/app/services/physio/physio.service';
 
@@ -16,7 +16,7 @@ export class AthleteCreateComponent implements OnInit {
   validMessage = '';
 
   physioList = [];
-  sexEnum=[];
+  genderEnum=[];
   dominantSideEnum=[];
 
   constructor(private athleteService: AthleteService, private physioService: PhysioService) { }
@@ -29,7 +29,7 @@ export class AthleteCreateComponent implements OnInit {
       mobile: new FormControl('', Validators.required),
       height: new FormControl('', Validators.required),
       weight: new FormControl('', Validators.required),
-      sex: new FormControl('', Validators.required),
+      gender: new FormControl('', Validators.required),
       dominantSide: new FormControl('', Validators.required),
       physioId: new FormControl('', Validators.required)
     });
@@ -40,7 +40,7 @@ export class AthleteCreateComponent implements OnInit {
       }
     )
 
-    this.sexEnum = Object.keys(Sex);
+    this.genderEnum = Object.keys(Gender);
     this.dominantSideEnum = Object.keys(BodySide);
   }
 
@@ -53,8 +53,8 @@ export class AthleteCreateComponent implements OnInit {
       athleteRequest.mobile = this.athleteForm.get("mobile").value;
       athleteRequest.height = this.athleteForm.get("height").value;
       athleteRequest.weight = this.athleteForm.get("weight").value;
-      athleteRequest.sex = Sex[this.athleteForm.get("sex").value];
-      athleteRequest.dominantSide = BodySide[this.athleteForm.get("dominantSide").value];
+      athleteRequest.gender = this.athleteForm.get("gender").value;
+      athleteRequest.dominantSide = this.athleteForm.get("dominantSide").value;
       athleteRequest.physioId = this.athleteForm.get("physioId").value;
 
       this.athleteService.createAthlete(athleteRequest).subscribe(

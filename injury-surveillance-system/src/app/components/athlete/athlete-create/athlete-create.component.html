@@ -24,9 +24,9 @@
       <input type="number" class="form-control" formControlName="height" required /><br>
       <label for="weight">Weight:</label>
       <input type="number" class="form-control" formControlName="weight" required /><br>
-      <select formControlName="sex">
+      <select formControlName="gender">
         <option value='' disabled selected>Gender</option>
-        <option *ngFor="let sex of sexEnum" [value]="sex"> {{sex}} </option>
+        <option *ngFor="let gender of genderEnum" [value]="gender"> {{gender}} </option>
       </select>
       <select formControlName="dominantSide">
         <option value='' disabled selected>Dominant Side</option>

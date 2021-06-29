@@ -8,7 +8,7 @@ export class AthleteRequest {
     mobile: String;
     height: Number;
     weight: Number;
-    sex: String;
+    gender: String;
     dominantSide: String;
     physioId: Number;
 }
