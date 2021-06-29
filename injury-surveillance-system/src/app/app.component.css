@@ -1,0 +1,12 @@
+.tile-image {
+    width:100%;
+    height: auto;
+  }
+
+  .app-header {
+    padding: 5px;
+    text-align: center;
+    background: #1a72d6;
+    color: white;
+    font-size: 20px;
+  }

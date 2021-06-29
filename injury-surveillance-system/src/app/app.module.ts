@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderInterceptor } from './interceptors/HeaderInterceptor';
 import { AthleteCreateComponent } from './components/athlete/athlete-create/athlete-create.component';
 import { AthleteListComponent } from './components/athlete/athlete-list/athlete-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AthleteListComponent } from './components/athlete/athlete-list/athlete-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AthleteService,
