@@ -1,5 +1,49 @@
-<p>Physio List</p>
+<mat-toolbar-row>
+    <h3>Physio List</h3>
+</mat-toolbar-row>
 
+<div class="iss-table-button-container">
+    <button mat-fab color="primary" routerLink="/physio-create" class="iss-table-button">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+
+<table mat-table [dataSource]="physios" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let physio"> {{physio.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef> Name & Surname </th>
+        <td mat-cell *matCellDef="let physio"> {{physio.name}} {{physio.surname}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let physio"> {{physio.email}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile Phone </th>
+        <td mat-cell *matCellDef="let physio"> {{physio.mobile}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<!--
 <div class="row">
     <div class="link-column">
         <a class="btn btn-primary" routerLink="/">Home</a>
@@ -8,29 +52,4 @@
         <a class="btn btn-primary" routerLink="/physio-create">Create Physio</a>
     </div>
 </div>
-
-<div class="container">
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Name & Surname</th>
-            <th>Email</th>
-            <th>Mobile Phone</th>
-        </tr>
-        <tr *ngFor="let physio of physios">
-            <td>
-                {{physio.id}}
-                <!--<a [routerLink]="['/edit', physio.id]">{{physio.id}}</a>-->
-            </td>
-            <td>
-                {{physio.name}} {{physio.surname}}
-            </td>
-            <td>
-                {{physio.email}}
-            </td>
-            <td>
-                {{physio.mobile}}
-            </td>
-        </tr>
-    </table>
-</div>
+-->
