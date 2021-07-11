@@ -1,27 +1,48 @@
-<p>Create Physio</p>
+<mat-toolbar-row>
+  <div class="content-header">Create Physio</div>
+</mat-toolbar-row>
 
-<div class="row">
-  <div class="link-column">
-      <a class="btn btn-primary" routerLink="/physio-list">Physio List</a>
+<div class="iss-button-row">
+  <div class="iss-nav-button-container">
+    <button mat-fab color="primary" routerLink="/physio-list" class="iss-table-button">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
 </div>
 
-<div class="container">
-    <form [formGroup]="physioForm" (ngSubmit)="createPhysio()">
-      <div *ngIf="validMessage != ''">
-        <h3 class="has-info">{{validMessage}}</h3>
+<div class="iss-form">
+  <form [formGroup]="physioForm" (ngSubmit)="createPhysio()" fxLayout="column" fxLayoutAlign="space-between stretch">
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field  fxFlex="40">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" class="form-control" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <mat-label>Surname</mat-label>
+        <input matInput type="text" class="form-control" formControlName="surname" required>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <mat-label>Email</mat-label>
+        <input matInput type="text" class="form-control" formControlName="email" required>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <mat-label>Mobile Phone</mat-label>
+        <input matInput type="text" class="form-control" formControlName="mobile" required>
+      </mat-form-field>
+    </div>
+
+    <div class="iss-button-row">
+      <div class="iss-nav-button-container">
+        <button mat-raised-button color="primary" type="submit">
+          Create
+        </button>
       </div>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" formControlName="name" title="Name" required /><br>
-        <label for="surname">Surname:</label>
-        <input type="text" class="form-control" formControlName="surname" required /><br>
-        <label for="email">Email:</label>
-        <input type="text" class="form-control" formControlName="email" required /><br>
-        <label for="mobile">Mobile Phone:</label>
-        <input type="text" class="form-control" formControlName="mobile" required /><br>
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>

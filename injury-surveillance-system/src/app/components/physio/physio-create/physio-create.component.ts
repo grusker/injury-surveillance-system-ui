@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PhysioRequest } from 'src/app/models/PhysioRequest';
 import { PhysioService } from 'src/app/services/physio/physio.service';
 
 @Component({
   selector: 'app-physio-create',
   templateUrl: './physio-create.component.html',
-  styleUrls: ['./physio-create.component.css']
+  styleUrls: ['./physio-create.component.css', '../../../app.component.css']
 })
 export class PhysioCreateComponent implements OnInit {
   physioForm: FormGroup;
   validMessage = '';
 
-  constructor(private physioService: PhysioService) { }
+  constructor(private physioService: PhysioService, private router: Router) { }
 
   ngOnInit(): void {
     this.physioForm = new FormGroup({
@@ -37,6 +38,7 @@ export class PhysioCreateComponent implements OnInit {
          this.physioForm.reset();
          return true; 
         });
+        this.router.navigate(['physio-list']);
     } else {
       this.validMessage = "Please fill the form!";
     }

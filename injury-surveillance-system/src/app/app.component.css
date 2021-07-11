@@ -3,12 +3,50 @@
     height: auto;
   }
 
+  .content-body {
+    position: relative;
+  }
+
+  .iss-button-row {
+    width: 100%;
+    clear: both;
+  }
+
   .iss-table-button-container {
-    padding-bottom: 15px;
     float: right;
+    padding-bottom: 15px;
+  }
+
+  .iss-nav-button-container {
+    float: left;
+    padding-bottom: 15px;
   }
 
   .iss-table-button {
     margin-left: 5px;
     margin-right: 5px;
   }
+
+  .content-header {
+    text-align: center;
+    vertical-align: middle;
+    font-size: x-large;
+    width: 100%;
+    height: auto;
+  }
+
+  .iss-form {
+    padding-left: 5%;
+    padding-right: 5%;
+    clear: both;
+  }
+
+  .iss-form-row {
+    width: 100%;
+  }
+
+  .iss-form-row > td {
+    padding-right: 8px;
+  }
+
+

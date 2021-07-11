@@ -16,6 +16,7 @@ import { AthleteCreateComponent } from './components/athlete/athlete-create/athl
 import { AthleteListComponent } from './components/athlete/athlete-list/athlete-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MaterialModule } from './material.module';
   ],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
