@@ -1,51 +1,145 @@
-<p>Create Athlete</p>
+<mat-toolbar-row>
+  <div class="content-header">Create Athlete</div>
+</mat-toolbar-row>
 
-<div class="row">
-  <div class="link-column">
-    <a class="btn btn-primary" routerLink="/athlete-list">Athlete List</a>
+<div class="iss-button-row">
+  <div class="iss-nav-button-container">
+    <button
+      mat-fab
+      color="primary"
+      routerLink="/athlete-list"
+      class="iss-table-button"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
   </div>
 </div>
 
-<div class="container">
-  <div width="w-25 p-3">
-    <img class="tile-image" src="assets/images/person.jpeg">
-  </div>
-  <div class="w-75 p-3">
-    <form [formGroup]="athleteForm" (ngSubmit)="createAthlete()">
-      <div *ngIf="validMessage != ''">
-        <h3 class="has-info">{{validMessage}}</h3>
-      </div>
-      <div class="form-group">
-        <mat-form-field appearance="fill">
-          <mat-label>Name</mat-label>
-          <input matInput type="text" class="form-control" formControlName="name" required>
-        </mat-form-field><br>
-        <label for="surname">Surname:</label>
-        <input type="text" class="form-control" formControlName="surname" required /><br>
-        <label for="email">Email:</label>
-        <input type="text" class="form-control" formControlName="email" required /><br>
-        <label for="mobile">Mobile Phone:</label>
-        <input type="text" class="form-control" formControlName="mobile" required /><br>
-        <label for="height">Height:</label>
-        <input type="number" class="form-control" formControlName="height" required /><br>
-        <label for="weight">Weight:</label>
-        <input type="number" class="form-control" formControlName="weight" required /><br>
-        <select formControlName="gender">
-          <option value='' disabled selected>Gender</option>
-          <option *ngFor="let gender of genderEnum" [value]="gender"> {{gender}} </option>
-        </select>
-        <select formControlName="dominantSide">
-          <option value='' disabled selected>Dominant Side</option>
-          <option *ngFor="let side of dominantSideEnum" [value]="side"> {{side}} </option>
-        </select>
-        <select formControlName="physioId">
-          <option value='' disabled selected>Physioterapist</option>
-          <option *ngFor="let physio of physioList" [value]="physio.id"> {{physio.name}} {{physio.surname}} </option>
-        </select>
-      </div>
+<div class="iss-form">
+  <form
+    [formGroup]="athleteForm"
+    (ngSubmit)="createAthlete()"
+    fxLayout="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <!--<div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <img class="tile-image" src="assets/images/person.jpeg">
+      </mat-form-field>
+    </div>-->
 
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-  </div>
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex="40">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="name"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <mat-label>Surname</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="surname"
+          required
+        />
+      </mat-form-field>
+    </div>
 
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="email"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <mat-label>Mobile Phone</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="mobile"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex="40">
+        <mat-label>Height(cm)</mat-label>
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          formControlName="height"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <mat-label>Weight(kg)</mat-label>
+        <input
+          matInput
+          type="number"
+          class="form-control"
+          formControlName="weight"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex="25">
+        <mat-label>Gender</mat-label>
+        <mat-select
+          (selectionChange)="genderSelection($event)"
+          formControlName="gender"
+        >
+          <mat-option *ngFor="let gender of genderEnum" [value]="gender">
+            {{ gender }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="25">
+        <mat-label>Dominant Side</mat-label>
+        <mat-select
+          (selectionChange)="dominantSideSelection($event)"
+          formControlName="dominantSide"
+        >
+          <mat-option *ngFor="let side of dominantSideEnum" [value]="side">
+            {{ side }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="25">
+        <mat-label>Physioterapist</mat-label>
+        <mat-select
+          (selectionChange)="physioSelection($event)"
+          formControlName="physioId"
+        >
+          <mat-option *ngFor="let physio of physioList" [value]="physio.id">
+            {{ physio.name }} {{ physio.surname }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="iss-button-row">
+      <div class="iss-nav-button-container">
+        <button mat-raised-button color="primary" type="submit">Create</button>
+      </div>
+    </div>
+  </form>
 </div>
