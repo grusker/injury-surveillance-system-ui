@@ -22,6 +22,7 @@ export class AthleteListComponent implements OnInit {
       'height',
       'weight',
       'bmi',
+      'age',
       'gender',
       'dominantSide',
       'physioterapist',

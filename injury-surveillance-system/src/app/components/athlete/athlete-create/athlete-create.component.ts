@@ -39,6 +39,7 @@ export class AthleteCreateComponent implements OnInit {
       mobile: new FormControl('', Validators.required),
       height: new FormControl('', Validators.required),
       weight: new FormControl('', Validators.required),
+      age: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
       dominantSide: new FormControl('', Validators.required),
       physioId: new FormControl('', Validators.required),
@@ -79,6 +80,7 @@ export class AthleteCreateComponent implements OnInit {
       athleteRequest.mobile = this.athleteForm.get('mobile').value;
       athleteRequest.height = this.athleteForm.get('height').value;
       athleteRequest.weight = this.athleteForm.get('weight').value;
+      athleteRequest.age = this.athleteForm.get('age').value;
       athleteRequest.gender = this.athleteForm.get('gender').value;
       athleteRequest.dominantSide = this.athleteForm.get('dominantSide').value;
       athleteRequest.physioId = this.athleteForm.get('physioId').value;
