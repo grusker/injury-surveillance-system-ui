@@ -22,6 +22,11 @@
     padding-bottom: 15px;
   }
 
+  .iss-commit-button-container {
+    float: right;
+    padding-bottom: 15px;
+  }
+
   .iss-table-button {
     margin-left: 5px;
     margin-right: 5px;

@@ -14,7 +14,8 @@ import { PhysioService } from 'src/app/services/physio/physio.service';
   styleUrls: ['./athlete-create.component.css', '../../../app.component.css'],
 })
 export class AthleteCreateComponent implements OnInit {
-  athleteForm: FormGroup;
+  athletePersonalInfoForm: FormGroup;
+  athleteBodyInfoForm: FormGroup;
   validMessage = '';
 
   physioList = [];
@@ -32,18 +33,24 @@ export class AthleteCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.athleteForm = new FormGroup({
+    this.athletePersonalInfoForm = new FormGroup({
       name: new FormControl('', Validators.required),
       surname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       mobile: new FormControl('', Validators.required),
-      height: new FormControl('', Validators.required),
-      weight: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
-      dominantSide: new FormControl('', Validators.required),
-      physioId: new FormControl('', Validators.required),
+      physioId: new FormControl('', Validators.required), //TODO: remove this if necessary
+      team: new FormControl('', Validators.required),
+      sport: new FormControl('', Validators.required),
+      position: new FormControl('', Validators.required),
     });
+
+    this.athleteBodyInfoForm = new FormGroup({
+      height: new FormControl('', Validators.required),
+      weight: new FormControl('', Validators.required),
+      dominantSide: new FormControl('', Validators.required),
+    })
 
     this.physioService.getPhysios().subscribe((data: any) => {
       this.physioList = data;
@@ -54,40 +61,40 @@ export class AthleteCreateComponent implements OnInit {
   }
 
   physioSelection(event: MatSelectChange) {
-    this.athleteForm.patchValue({
+    this.athletePersonalInfoForm.patchValue({
       physioId: event.value,
     });
   }
 
   dominantSideSelection(event: MatSelectChange) {
-    this.athleteForm.patchValue({
+    this.athleteBodyInfoForm.patchValue({
       dominantSide: event.value,
     });
   }
 
   genderSelection(event: MatSelectChange) {
-    this.athleteForm.patchValue({
+    this.athletePersonalInfoForm.patchValue({
       gender: event.value,
     });
   }
 
   createAthlete() {
-    if (this.athleteForm.valid) {
+    if (this.athletePersonalInfoForm.valid) {
       let athleteRequest: AthleteRequest = new AthleteRequest();
-      athleteRequest.name = this.athleteForm.get('name').value;
-      athleteRequest.surname = this.athleteForm.get('surname').value;
-      athleteRequest.email = this.athleteForm.get('email').value;
-      athleteRequest.mobile = this.athleteForm.get('mobile').value;
-      athleteRequest.height = this.athleteForm.get('height').value;
-      athleteRequest.weight = this.athleteForm.get('weight').value;
-      athleteRequest.age = this.athleteForm.get('age').value;
-      athleteRequest.gender = this.athleteForm.get('gender').value;
-      athleteRequest.dominantSide = this.athleteForm.get('dominantSide').value;
-      athleteRequest.physioId = this.athleteForm.get('physioId').value;
+      athleteRequest.name = this.athletePersonalInfoForm.get('name').value;
+      athleteRequest.surname = this.athletePersonalInfoForm.get('surname').value;
+      athleteRequest.email = this.athletePersonalInfoForm.get('email').value;
+      athleteRequest.mobile = this.athletePersonalInfoForm.get('mobile').value;
+      athleteRequest.height = this.athletePersonalInfoForm.get('height').value;
+      athleteRequest.weight = this.athletePersonalInfoForm.get('weight').value;
+      athleteRequest.age = this.athletePersonalInfoForm.get('age').value;
+      athleteRequest.gender = this.athletePersonalInfoForm.get('gender').value;
+      athleteRequest.dominantSide = this.athletePersonalInfoForm.get('dominantSide').value;
+      athleteRequest.physioId = this.athletePersonalInfoForm.get('physioId').value;
 
       this.athleteService.createAthlete(athleteRequest).subscribe((data) => {
         this.validMessage = 'Athlete created successfully.';
-        this.athleteForm.reset();
+        this.athletePersonalInfoForm.reset();
         return true;
       });
       this.router.navigate(['athlete-list']);

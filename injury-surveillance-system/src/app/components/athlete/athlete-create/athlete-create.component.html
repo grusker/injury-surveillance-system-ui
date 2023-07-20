@@ -16,140 +16,175 @@
 </div>
 
 <div class="iss-form">
-  <form
-    [formGroup]="athleteForm"
-    (ngSubmit)="createAthlete()"
-    fxLayout="column"
-    fxLayoutAlign="space-between stretch"
-  >
-    <!--<div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex>
-        <img class="tile-image" src="assets/images/person.jpeg">
-      </mat-form-field>
-    </div>-->
-
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex="40">
-        <mat-label>Name</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          formControlName="name"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field fxFlex="40">
-        <mat-label>Surname</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          formControlName="surname"
-          required
-        />
-      </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex>
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          formControlName="email"
-          required
-        />
-      </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex>
-        <mat-label>Mobile Phone</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          formControlName="mobile"
-          required
-        />
-      </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex="25">
-        <mat-label>Height(cm)</mat-label>
-        <input
-          matInput
-          type="number"
-          class="form-control"
-          formControlName="height"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field fxFlex="25">
-        <mat-label>Weight(kg)</mat-label>
-        <input
-          matInput
-          type="number"
-          class="form-control"
-          formControlName="weight"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field fxFlex="25">
-        <mat-label>Age</mat-label>
-        <input
-          matInput
-          type="number"
-          class="form-control"
-          formControlName="age"
-          required
-        />
-      </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex="25">
-        <mat-label>Gender</mat-label>
-        <mat-select
-          (selectionChange)="genderSelection($event)"
-          formControlName="gender"
-        >
-          <mat-option *ngFor="let gender of genderEnum" [value]="gender">
-            {{ gender }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field fxFlex="25">
-        <mat-label>Dominant Side</mat-label>
-        <mat-select
-          (selectionChange)="dominantSideSelection($event)"
-          formControlName="dominantSide"
-        >
-          <mat-option *ngFor="let side of dominantSideEnum" [value]="side">
-            {{ side }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field fxFlex="25">
-        <mat-label>Physioterapist</mat-label>
-        <mat-select
-          (selectionChange)="physioSelection($event)"
-          formControlName="physioId"
-        >
-          <mat-option *ngFor="let physio of physioList" [value]="physio.id">
-            {{ physio.name }} {{ physio.surname }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <div class="iss-button-row">
-      <div class="iss-nav-button-container">
-        <button mat-raised-button color="primary" type="submit">Create</button>
-      </div>
-    </div>
-  </form>
+  <mat-stepper orientation="vertical" #stepper>
+    <mat-step [stepControl]="athletePersonalInfoForm">
+      <form [formGroup]="athletePersonalInfoForm">
+        <div>
+          <ng-template matStepLabel>Personal Information</ng-template>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="40">
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="name"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+              <mat-label>Surname</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="surname"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="40">
+              <mat-label>Gender</mat-label>
+              <mat-select
+                (selectionChange)="genderSelection($event)"
+                formControlName="gender"
+              >
+                <mat-option *ngFor="let gender of genderEnum" [value]="gender">
+                  {{ gender }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="age"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="25">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="email"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Mobile Phone</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="mobile"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Physioterapist</mat-label>
+              <mat-select
+                (selectionChange)="physioSelection($event)"
+                formControlName="physioId"
+              >
+                <mat-option *ngFor="let physio of physioList" [value]="physio.id">
+                  {{ physio.name }} {{ physio.surname }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="25">
+              <mat-label>Sport</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="sport"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Team</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="team"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Position</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="position"
+                required
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="iss-button-row">
+          <button mat-raised-button color="basic" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="athleteBodyInfoForm">
+      <form [formGroup]="athleteBodyInfoForm">
+        <div>
+          <ng-template matStepLabel>Body Composition</ng-template>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="25">
+              <mat-label>Height(cm)</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="height"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Weight(kg)</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="weight"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Dominant Side</mat-label>
+              <mat-select
+                (selectionChange)="dominantSideSelection($event)"
+                formControlName="dominantSide"
+              >
+                <mat-option *ngFor="let side of dominantSideEnum" [value]="side">
+                  {{ side }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="iss-button-row">
+          <div class="iss-nav-button-container">
+            <button mat-raised-button color="basic" matStepperPrevious>Previous</button>
+          </div>
+          <div class="iss-commit-button-container">
+            <button mat-raised-button color="primary" type="submit">Create</button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
 </div>
+

@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { MatListModule } from '@angular/material/list';
         MatButtonModule,
         MatSidenavModule,
         MatToolbarModule,
-        MatListModule
+        MatListModule,
+        MatStepperModule
     ],
     exports: [
         MatFormFieldModule,
@@ -37,7 +39,8 @@ import { MatListModule } from '@angular/material/list';
         MatButtonModule,
         MatSidenavModule,
         MatToolbarModule,
-        MatListModule
+        MatListModule,
+        MatStepperModule
     ]
 })
 export class MaterialModule { }
