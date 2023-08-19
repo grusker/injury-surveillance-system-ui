@@ -120,13 +120,6 @@
                   {{ branch }}
                 </mat-option>
               </mat-select>
-              <input
-                matInput
-                type="text"
-                class="form-control"
-                formControlName="branch"
-                required
-              />
             </mat-form-field>
             <mat-form-field fxFlex="40">
               <mat-label>Team</mat-label>
@@ -244,7 +237,26 @@
             </mat-form-field>
           </div>
           <div fxLayout="row" fxLayoutAlign="space-between stretch">
-
+            <mat-form-field fxFlex="40">
+              <mat-label>Lower Extremity Length</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="lowerExtremityLength"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+              <mat-label>Upper Extremity Length</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="upperExtremityLength"
+                required
+              />
+            </mat-form-field>
           </div>
         </div>
         <div class="iss-button-row">

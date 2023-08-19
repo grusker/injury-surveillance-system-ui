@@ -54,6 +54,10 @@ export class AthleteCreateComponent implements OnInit {
       height: new FormControl('', Validators.required),
       weight: new FormControl('', Validators.required),
       dominantSide: new FormControl('', Validators.required),
+      lowerExtremityDominantSide: new FormControl('', Validators.required),
+      upperExtremityDominantSide: new FormControl('', Validators.required),
+      lowerExtremityLength: new FormControl('', Validators.required),
+      upperExtremityLength: new FormControl('', Validators.required),
     })
 
     this.athleteSportInfoForm = new FormGroup({
