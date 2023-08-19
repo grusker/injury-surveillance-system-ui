@@ -1,0 +1,7 @@
+export enum SportBranch {
+    FOOTBALL = "FOOTBALL",
+    BASKETBALL = "BASKETBALL",
+    VOLLEYBALL = "VOLLEYBALL",
+    HANDBALL = "HANDBALL",
+    TENNIS = "TENNIS"
+}
