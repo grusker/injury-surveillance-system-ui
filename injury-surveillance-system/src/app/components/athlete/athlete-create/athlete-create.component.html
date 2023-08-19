@@ -99,8 +99,18 @@
               </mat-select>
             </mat-form-field>
           </div>
+        </div>
+        <div class="iss-button-row">
+          <button mat-raised-button color="basic" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="athleteSportInfoForm">
+      <form [formGroup]="athleteSportInfoForm">
+        <div>
+          <ng-template matStepLabel>Sport Information</ng-template>
           <div fxLayout="row" fxLayoutAlign="space-between stretch">
-            <mat-form-field fxFlex="25">
+            <mat-form-field fxFlex="40">
               <mat-label>Sport</mat-label>
               <input
                 matInput
@@ -110,7 +120,7 @@
                 required
               />
             </mat-form-field>
-            <mat-form-field fxFlex="25">
+            <mat-form-field fxFlex="40">
               <mat-label>Team</mat-label>
               <input
                 matInput
@@ -120,6 +130,8 @@
                 required
               />
             </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
             <mat-form-field fxFlex="25">
               <mat-label>Position</mat-label>
               <input
@@ -130,10 +142,35 @@
                 required
               />
             </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Sport Age</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="sportAge"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Weekly Training Hours</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="weeklyTrainingHours"
+                required
+              />
+            </mat-form-field>
           </div>
         </div>
         <div class="iss-button-row">
-          <button mat-raised-button color="basic" matStepperNext>Next</button>
+          <div class="iss-nav-button-container">
+            <button mat-raised-button color="basic" matStepperPrevious>Previous</button>
+          </div>
+          <div class="iss-nav-button-container">
+            <button mat-raised-button color="basic" matStepperNext>Next</button>
+          </div>
         </div>
       </form>
     </mat-step>

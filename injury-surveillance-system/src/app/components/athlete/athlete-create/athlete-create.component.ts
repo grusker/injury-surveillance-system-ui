@@ -16,6 +16,7 @@ import { PhysioService } from 'src/app/services/physio/physio.service';
 export class AthleteCreateComponent implements OnInit {
   athletePersonalInfoForm: FormGroup;
   athleteBodyInfoForm: FormGroup;
+  athleteSportInfoForm: FormGroup;
   validMessage = '';
 
   physioList = [];
@@ -40,16 +41,21 @@ export class AthleteCreateComponent implements OnInit {
       mobile: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
-      physioId: new FormControl('', Validators.required), //TODO: remove this if necessary
-      team: new FormControl('', Validators.required),
-      sport: new FormControl('', Validators.required),
-      position: new FormControl('', Validators.required),
+      physioId: new FormControl('', Validators.required), //TODO: remove this if not necessary
     });
 
     this.athleteBodyInfoForm = new FormGroup({
       height: new FormControl('', Validators.required),
       weight: new FormControl('', Validators.required),
       dominantSide: new FormControl('', Validators.required),
+    })
+
+    this.athleteSportInfoForm = new FormGroup({
+      team: new FormControl('', Validators.required),
+      sport: new FormControl('', Validators.required),
+      position: new FormControl('', Validators.required),
+      sportAge: new FormControl('', Validators.required),
+      weeklyTrainingHours: new FormControl('', Validators.required),
     })
 
     this.physioService.getPhysios().subscribe((data: any) => {
