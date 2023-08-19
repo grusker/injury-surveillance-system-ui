@@ -112,11 +112,19 @@
           <div fxLayout="row" fxLayoutAlign="space-between stretch">
             <mat-form-field fxFlex="40">
               <mat-label>Sport</mat-label>
+              <mat-select 
+                (selectionChange)="branchSelection($event)"
+                formControlName="branch"
+              >
+                <mat-option *ngFor="let branch of branchEnum" [value]="branch">
+                  {{ branch }}
+                </mat-option>
+              </mat-select>
               <input
                 matInput
                 type="text"
                 class="form-control"
-                formControlName="sport"
+                formControlName="branch"
                 required
               />
             </mat-form-field>

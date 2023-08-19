@@ -3,8 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { AthleteRequest } from 'src/app/models/AthleteRequest';
-import { BodySide } from 'src/app/models/BodySide';
-import { Gender } from 'src/app/models/Gender';
+import { BodyInfoRequest } from 'src/app/models/BodyInfoRequest';
+import { SportInfoRequest } from 'src/app/models/SportInfoRequest';
+import { BodySide } from 'src/app/models/enums/BodySide';
+import { Gender } from 'src/app/models/enums/Gender';
+import { SportBranch } from 'src/app/models/enums/SportBranch';
 import { AthleteService } from 'src/app/services/athlete/athlete.service';
 import { PhysioService } from 'src/app/services/physio/physio.service';
 
@@ -22,6 +25,7 @@ export class AthleteCreateComponent implements OnInit {
   physioList = [];
   genderEnum = [];
   dominantSideEnum = [];
+  branchEnum = [];
 
   selectedPhysio;
   selectedGender;
@@ -52,7 +56,7 @@ export class AthleteCreateComponent implements OnInit {
 
     this.athleteSportInfoForm = new FormGroup({
       team: new FormControl('', Validators.required),
-      sport: new FormControl('', Validators.required),
+      branch: new FormControl('', Validators.required),
       position: new FormControl('', Validators.required),
       sportAge: new FormControl('', Validators.required),
       weeklyTrainingHours: new FormControl('', Validators.required),
@@ -64,6 +68,7 @@ export class AthleteCreateComponent implements OnInit {
 
     this.genderEnum = Object.keys(Gender);
     this.dominantSideEnum = Object.keys(BodySide);
+    this.branchEnum = Object.keys(SportBranch);
   }
 
   physioSelection(event: MatSelectChange) {
@@ -84,19 +89,44 @@ export class AthleteCreateComponent implements OnInit {
     });
   }
 
+  branchSelection(event: MatSelectChange) {
+    this.athleteSportInfoForm.patchValue({
+      branch: event.value,
+    })
+  }
+
   createAthlete() {
-    if (this.athletePersonalInfoForm.valid) {
-      let athleteRequest: AthleteRequest = new AthleteRequest();
-      athleteRequest.name = this.athletePersonalInfoForm.get('name').value;
-      athleteRequest.surname = this.athletePersonalInfoForm.get('surname').value;
-      athleteRequest.email = this.athletePersonalInfoForm.get('email').value;
-      athleteRequest.mobile = this.athletePersonalInfoForm.get('mobile').value;
-      athleteRequest.height = this.athletePersonalInfoForm.get('height').value;
-      athleteRequest.weight = this.athletePersonalInfoForm.get('weight').value;
-      athleteRequest.age = this.athletePersonalInfoForm.get('age').value;
-      athleteRequest.gender = this.athletePersonalInfoForm.get('gender').value;
-      athleteRequest.dominantSide = this.athletePersonalInfoForm.get('dominantSide').value;
-      athleteRequest.physioId = this.athletePersonalInfoForm.get('physioId').value;
+    if (this.athletePersonalInfoForm.valid &&
+      this.athleteBodyInfoForm &&
+      this.athleteSportInfoForm) {
+        let sportInfoRequest: SportInfoRequest = new SportInfoRequest();
+        sportInfoRequest.branch = this.athleteSportInfoForm.get('branch').value;
+        sportInfoRequest.team = this.athleteSportInfoForm.get('team').value;
+        sportInfoRequest.position = this.athleteSportInfoForm.get('position').value;
+        sportInfoRequest.sportAge = this.athleteSportInfoForm.get('sportAge').value;
+        sportInfoRequest.weeklyTrainingHours = this.athleteSportInfoForm.get('weeklyTrainingHours').value;
+        
+
+        let bodyInfoRequest: BodyInfoRequest = new BodyInfoRequest();
+        bodyInfoRequest.height = this.athleteBodyInfoForm.get('height').value;
+        bodyInfoRequest.weight = this.athleteBodyInfoForm.get('weight').value;
+        bodyInfoRequest.dominantSide = this.athleteBodyInfoForm.get('dominantSide').value;
+        bodyInfoRequest.lowerExtremityDominantSide = this.athleteBodyInfoForm.get('lowerExtremityDominantSide').value;
+        bodyInfoRequest.upperExtremityDominantSide = this.athleteBodyInfoForm.get('upperExtremityDominantSide').value;
+        bodyInfoRequest.lowerExtremityLength = this.athleteBodyInfoForm.get('lowerExtremityLength').value;
+        bodyInfoRequest.upperExtremityLength = this.athleteBodyInfoForm.get('upperExtremityLength').value;
+
+    
+        let athleteRequest: AthleteRequest = new AthleteRequest();
+        athleteRequest.name = this.athletePersonalInfoForm.get('name').value;
+        athleteRequest.surname = this.athletePersonalInfoForm.get('surname').value;
+        athleteRequest.email = this.athletePersonalInfoForm.get('email').value;
+        athleteRequest.mobile = this.athletePersonalInfoForm.get('mobile').value;
+        athleteRequest.age = this.athletePersonalInfoForm.get('age').value;
+        athleteRequest.gender = this.athletePersonalInfoForm.get('gender').value;
+        athleteRequest.physioId = this.athletePersonalInfoForm.get('physioId').value;
+        athleteRequest.sportInfo = sportInfoRequest;
+        athleteRequest.bodyInfo = bodyInfoRequest;
 
       this.athleteService.createAthlete(athleteRequest).subscribe((data) => {
         this.validMessage = 'Athlete created successfully.';

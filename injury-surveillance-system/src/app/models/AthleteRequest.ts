@@ -1,5 +1,7 @@
+import { BodyInfoRequest } from "./BodyInfoRequest";
+import { SportInfoRequest } from "./SportInfoRequest";
+
 export class AthleteRequest {
-    id: Number;
     name: String;
     surname: String;
     email: String;
@@ -10,4 +12,6 @@ export class AthleteRequest {
     gender: String;
     dominantSide: String;
     physioId: Number;
+    sportInfo: SportInfoRequest;
+    bodyInfo: BodyInfoRequest;
 }
