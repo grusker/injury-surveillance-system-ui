@@ -219,6 +219,33 @@
               </mat-select>
             </mat-form-field>
           </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="40">
+              <mat-label>Lower Extremity Dominant Side</mat-label>
+              <mat-select
+                (selectionChange)="lowerExtremityDominantSideSelection($event)"
+                formControlName="lowerExtremityDominantSide"
+              >
+                <mat-option *ngFor="let side of lowerExtremityDominantSideEnum" [value]="side">
+                  {{ side }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+              <mat-label>Upper Extremity Dominant Side</mat-label>
+              <mat-select
+                (selectionChange)="upperExtremityDominantSideSelection($event)"
+                formControlName="upperExtremityDominantSide"
+              >
+                <mat-option *ngFor="let side of upperExtremityDominantSideEnum" [value]="side">
+                  {{ side }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+
+          </div>
         </div>
         <div class="iss-button-row">
           <div class="iss-nav-button-container">

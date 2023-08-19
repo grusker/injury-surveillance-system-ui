@@ -26,6 +26,8 @@ export class AthleteCreateComponent implements OnInit {
   genderEnum = [];
   dominantSideEnum = [];
   branchEnum = [];
+  lowerExtremityDominantSideEnum = [];
+  upperExtremityDominantSideEnum = [];
 
   selectedPhysio;
   selectedGender;
@@ -69,6 +71,8 @@ export class AthleteCreateComponent implements OnInit {
     this.genderEnum = Object.keys(Gender);
     this.dominantSideEnum = Object.keys(BodySide);
     this.branchEnum = Object.keys(SportBranch);
+    this.lowerExtremityDominantSideEnum = Object.keys(BodySide);
+    this.upperExtremityDominantSideEnum = Object.keys(BodySide);
   }
 
   physioSelection(event: MatSelectChange) {
@@ -93,6 +97,18 @@ export class AthleteCreateComponent implements OnInit {
     this.athleteSportInfoForm.patchValue({
       branch: event.value,
     })
+  }
+
+  lowerExtremityDominantSideSelection(event: MatSelectChange) {
+    this.athleteBodyInfoForm.patchValue({
+      lowerExtremityDominantSide: event.value,
+    });
+  }
+
+  upperExtremityDominantSideSelection(event: MatSelectChange) {
+    this.athleteBodyInfoForm.patchValue({
+      upperExtremityDominantSide: event.value,
+    });
   }
 
   createAthlete() {
