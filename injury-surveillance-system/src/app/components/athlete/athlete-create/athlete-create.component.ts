@@ -117,8 +117,8 @@ export class AthleteCreateComponent implements OnInit {
 
   createAthlete() {
     if (this.athletePersonalInfoForm.valid &&
-      this.athleteBodyInfoForm &&
-      this.athleteSportInfoForm) {
+      this.athleteBodyInfoForm.valid &&
+      this.athleteSportInfoForm.valid ) {
         let sportInfoRequest: SportInfoRequest = new SportInfoRequest();
         sportInfoRequest.branch = this.athleteSportInfoForm.get('branch').value;
         sportInfoRequest.team = this.athleteSportInfoForm.get('team').value;
