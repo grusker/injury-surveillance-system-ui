@@ -13,20 +13,17 @@ export class AthleteListComponent implements OnInit {
   constructor(private athleteService: AthleteService) {}
 
   ngOnInit(): void {
-    this.getAthletes();
     this.displayedColumns = [
-      'id',
       'fullName',
       'email',
       'mobile',
-      'height',
-      'weight',
-      'bmi',
       'age',
       'gender',
-      'dominantSide',
-      'physioterapist',
+      'branch',
+      'team',
+      'physiotherapist',
     ];
+    this.getAthletes();
   }
 
   getAthletes() {

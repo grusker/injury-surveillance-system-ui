@@ -42,24 +42,6 @@
     <td mat-cell *matCellDef="let athlete">{{ athlete.mobile }}</td>
   </ng-container>
 
-  <!-- Height Column -->
-  <ng-container matColumnDef="height">
-    <th mat-header-cell *matHeaderCellDef>Height</th>
-    <td mat-cell *matCellDef="let athlete">{{ athlete.height }}</td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef>Weight</th>
-    <td mat-cell *matCellDef="let athlete">{{ athlete.weight }}</td>
-  </ng-container>
-
-  <!-- BMI Column -->
-  <ng-container matColumnDef="bmi">
-    <th mat-header-cell *matHeaderCellDef>BMI</th>
-    <td mat-cell *matCellDef="let athlete">{{ athlete.bmi }}</td>
-  </ng-container>
-
   <!-- Age Column -->
   <ng-container matColumnDef="age">
     <th mat-header-cell *matHeaderCellDef>Age</th>
@@ -72,17 +54,23 @@
     <td mat-cell *matCellDef="let athlete">{{ athlete.gender }}</td>
   </ng-container>
 
-  <!-- Dominant Side Column -->
-  <ng-container matColumnDef="dominantSide">
-    <th mat-header-cell *matHeaderCellDef>Dominant Side</th>
-    <td mat-cell *matCellDef="let athlete">{{ athlete.dominantSide }}</td>
-  </ng-container>
+    <!-- Branch Column -->
+    <ng-container matColumnDef="branch">
+      <th mat-header-cell *matHeaderCellDef>Sport Branch</th>
+      <td mat-cell *matCellDef="let athlete">{{ athlete.sportInfo.branch }}</td>
+    </ng-container>
 
-  <!-- Physioterapist Column -->
-  <ng-container matColumnDef="physioterapist">
-    <th mat-header-cell *matHeaderCellDef>Physioterapist</th>
+        <!-- Team Column -->
+        <ng-container matColumnDef="team">
+          <th mat-header-cell *matHeaderCellDef>Team</th>
+          <td mat-cell *matCellDef="let athlete">{{ athlete.sportInfo.team }}</td>
+        </ng-container>
+
+  <!-- Physiotherapist Column -->
+  <ng-container matColumnDef="physiotherapist">
+    <th mat-header-cell *matHeaderCellDef>Physiotherapist</th>
     <td mat-cell *matCellDef="let athlete">
-      {{ athlete.physioterapist.name }} {{ athlete.physioterapist.surname }}
+      {{ athlete.physiotherapist.name }} {{ athlete.physiotherapist.surname }}
     </td>
   </ng-container>
 
