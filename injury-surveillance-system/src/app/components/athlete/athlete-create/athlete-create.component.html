@@ -16,7 +16,7 @@
 </div>
 
 <div class="iss-form">
-  <mat-stepper orientation="vertical" #stepper>
+  <mat-stepper orientation="vertical" [linear]=true #stepper>
     <mat-step [stepControl]="athletePersonalInfoForm">
       <form [formGroup]="athletePersonalInfoForm">
         <div>
@@ -176,7 +176,7 @@
       </form>
     </mat-step>
     <mat-step [stepControl]="athleteBodyInfoForm">
-      <form [formGroup]="athleteBodyInfoForm">
+      <form [formGroup]="athleteBodyInfoForm" (ngSubmit)="createAthlete()">
         <div>
           <ng-template matStepLabel>Body Composition</ng-template>
           <div fxLayout="row" fxLayoutAlign="space-between stretch">
