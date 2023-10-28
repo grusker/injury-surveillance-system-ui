@@ -37,7 +37,10 @@ export class PhysioCreateComponent implements OnInit {
         this.physioForm.reset();
         return true;
       });
-      this.router.navigate(['physio-list']);
+      setTimeout(() => {
+        this.router.navigate(['physio-list']);
+      },
+      1000);
     } else {
       this.validMessage = 'Please fill the form!';
     }

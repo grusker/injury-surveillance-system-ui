@@ -153,7 +153,10 @@ export class AthleteCreateComponent implements OnInit {
         this.athletePersonalInfoForm.reset();
         return true;
       });
-      this.router.navigate(['athlete-list']);
+      setTimeout(() => {
+        this.router.navigate(['athlete-list']);
+      },
+      1000);
     } else {
       this.validMessage = 'Please fill the form!';
     }
