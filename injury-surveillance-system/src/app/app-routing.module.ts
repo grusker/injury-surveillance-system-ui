@@ -22,7 +22,7 @@ const routes: Routes = [
     component: PhysioCreateComponent
   },
   {
-    path: 'physio/:id/details',
+    path: 'physio/:physioId/details',
     component: PhysioEditComponent
   },
   {

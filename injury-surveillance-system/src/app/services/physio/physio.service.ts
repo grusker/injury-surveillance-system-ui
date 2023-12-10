@@ -17,4 +17,8 @@ export class PhysioService {
     let body = JSON.stringify(physio);
     return this.http.post('/server/physios', body);
   }
+
+  getPhysio(physioId: Number) {
+    return this.http.get('/server/physios/'+ physioId);
+  }
 }
