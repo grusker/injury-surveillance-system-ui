@@ -14,7 +14,7 @@ export class PhysioListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPhysios();
-    this.displayedColumns = ['id', 'fullName', 'email', 'mobile'];
+    this.displayedColumns = ['id', 'fullName', 'email', 'mobile', 'edit'];
   }
 
   getPhysios() {

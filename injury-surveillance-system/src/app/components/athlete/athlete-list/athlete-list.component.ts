@@ -22,6 +22,7 @@ export class AthleteListComponent implements OnInit {
       'branch',
       'team',
       'physiotherapist',
+      'edit',
     ];
     this.getAthletes();
   }
