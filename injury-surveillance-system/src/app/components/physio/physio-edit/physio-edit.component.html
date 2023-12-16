@@ -6,7 +6,7 @@
     <form
       [formGroup]="physioForm"
       *ngIf="this.physioForm"
-      (ngSubmit)="editPhysio()"
+      (ngSubmit)="updatePhysio()"
       fxLayout="column"
       fxLayoutAlign="space-between stretch"
     >
@@ -61,7 +61,7 @@
   
       <div class="iss-button-row">
         <div class="iss-nav-button-container">
-          <button mat-raised-button color="primary" type="submit">Edit</button>
+          <button mat-raised-button color="primary" type="submit">Update</button>
         </div>
       </div>
     </form>

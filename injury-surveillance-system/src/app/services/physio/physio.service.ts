@@ -21,4 +21,9 @@ export class PhysioService {
   getPhysio(physioId: Number) {
     return this.http.get('/server/physios/'+ physioId);
   }
+
+  updatePhysio(physioId: Number, physio: PhysioRequest) {
+    let body = JSON.stringify(physio);
+    return this.http.put('/server/physios/' + physioId, body);
+  }
 }
