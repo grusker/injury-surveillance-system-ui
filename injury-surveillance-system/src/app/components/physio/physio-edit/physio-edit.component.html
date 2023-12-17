@@ -1,69 +1,68 @@
 <mat-toolbar-row>
-    <div class="content-header">Edit Physio</div>
-  </mat-toolbar-row>
-  
-  <div class="iss-form">
-    <form
-      [formGroup]="physioForm"
-      *ngIf="this.physioForm"
-      (ngSubmit)="updatePhysio()"
-      fxLayout="column"
-      fxLayoutAlign="space-between stretch"
-    >
-      <div fxLayout="row" fxLayoutAlign="space-between stretch">
-        <mat-form-field fxFlex="40">
-          <mat-label>Name</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            formControlName="name"
-            required
-          />
-        </mat-form-field>
-        <mat-form-field fxFlex="40">
-          <mat-label>Surname</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            formControlName="surname"
-            required
-          />
-        </mat-form-field>
+  <div class="content-header">Update Physio</div>
+</mat-toolbar-row>
+
+<div class="iss-form">
+  <form
+    [formGroup]="physioForm"
+    *ngIf="this.physioForm"
+    (ngSubmit)="updatePhysio()"
+    fxLayout="column"
+    fxLayoutAlign="space-between stretch"
+  >
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex="40">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="name"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <mat-label>Surname</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="surname"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="email"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex>
+        <mat-label>Mobile Phone</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="mobile"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="iss-button-row">
+      <div class="iss-nav-button-container">
+        <button mat-raised-button color="primary" type="submit">Update</button>
       </div>
-  
-      <div fxLayout="row" fxLayoutAlign="space-between stretch">
-        <mat-form-field fxFlex>
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            formControlName="email"
-            required
-          />
-        </mat-form-field>
-      </div>
-  
-      <div fxLayout="row" fxLayoutAlign="space-between stretch">
-        <mat-form-field fxFlex>
-          <mat-label>Mobile Phone</mat-label>
-          <input
-            matInput
-            type="text"
-            class="form-control"
-            formControlName="mobile"
-            required
-          />
-        </mat-form-field>
-      </div>
-  
-      <div class="iss-button-row">
-        <div class="iss-nav-button-container">
-          <button mat-raised-button color="primary" type="submit">Update</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  
+    </div>
+  </form>
+</div>
