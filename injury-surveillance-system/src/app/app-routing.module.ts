@@ -34,7 +34,7 @@ const routes: Routes = [
     component: AthleteCreateComponent
   },
   {
-    path: 'athlete/:id/details',
+    path: 'athlete/:athleteId/details',
     component: AthleteEditComponent
   },
 ];
