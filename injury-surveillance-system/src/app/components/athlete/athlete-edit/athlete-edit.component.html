@@ -1,1 +1,279 @@
-<p>athlete-edit works!</p>
+<mat-toolbar-row>
+  <div class="content-header">Update Athlete</div>
+</mat-toolbar-row>
+
+<div class="iss-button-row">
+  <div class="iss-nav-button-container">
+    <button
+      mat-fab
+      color="primary"
+      routerLink="/athlete-list"
+      class="iss-table-button"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="iss-form">
+  <mat-stepper orientation="vertical" [linear]="true" #stepper>
+    <mat-step [stepControl]="athletePersonalInfoForm">
+      <form
+        [formGroup]="athletePersonalInfoForm"
+        *ngIf="this.athletePersonalInfoForm"
+      >
+      <ng-template matStepLabel>Personal Information</ng-template>
+        <div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="40">
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="name"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+              <mat-label>Surname</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="surname"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="40">
+              <mat-label>Gender</mat-label>
+              <mat-select
+                (selectionChange)="genderSelection($event)"
+                formControlName="gender"
+              >
+                <mat-option *ngFor="let gender of genderEnum" [value]="gender">
+                  {{ gender }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex="40">
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                formControlName="age"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field fxFlex="25">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="email"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Mobile Phone</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                formControlName="mobile"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field fxFlex="25">
+              <mat-label>Physiotherapist</mat-label>
+              <mat-select
+                (selectionChange)="physioSelection($event)"
+                formControlName="physioId"
+              >
+                <mat-option
+                  *ngFor="let physio of physioList"
+                  [value]="physio.id"
+                >
+                  {{ physio.name }} {{ physio.surname }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="iss-button-row">
+          <button mat-raised-button color="basic" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+      <mat-step [stepControl]="athleteSportInfoForm">
+        <form [formGroup]="athleteSportInfoForm" *ngIf="this.athleteSportInfoForm">
+        <ng-template matStepLabel>Sport Information</ng-template>
+          <div>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="40">
+                <mat-label>Sport</mat-label>
+                <mat-select 
+                  (selectionChange)="branchSelection($event)"
+                  formControlName="branch"
+                >
+                  <mat-option *ngFor="let branch of branchEnum" [value]="branch">
+                    {{ branch }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field fxFlex="40">
+                <mat-label>Team</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  formControlName="team"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="25">
+                <mat-label>Position</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  formControlName="position"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field fxFlex="25">
+                <mat-label>Sport Age</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  formControlName="sportAge"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field fxFlex="25">
+                <mat-label>Weekly Training Hours</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  formControlName="weeklyTrainingHours"
+                  required
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="iss-button-row">
+            <div class="iss-nav-button-container">
+              <button mat-raised-button color="basic" matStepperPrevious>Previous</button>
+            </div>
+            <div class="iss-nav-button-container">
+              <button mat-raised-button color="basic" matStepperNext>Next</button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="athleteBodyInfoForm">
+        <form [formGroup]="athleteBodyInfoForm" *ngIf="this.athleteBodyInfoForm" (ngSubmit)="updateAthlete()">
+        <ng-template matStepLabel>Body Composition</ng-template>
+          <div>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="25">
+                <mat-label>Height(cm)</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  formControlName="height"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field fxFlex="25">
+                <mat-label>Weight(kg)</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  formControlName="weight"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field fxFlex="25">
+                <mat-label>Dominant Side</mat-label>
+                <mat-select
+                  (selectionChange)="dominantSideSelection($event)"
+                  formControlName="dominantSide"
+                >
+                  <mat-option *ngFor="let side of dominantSideEnum" [value]="side">
+                    {{ side }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="40">
+                <mat-label>Lower Extremity Dominant Side</mat-label>
+                <mat-select
+                  (selectionChange)="lowerExtremityDominantSideSelection($event)"
+                  formControlName="lowerExtremityDominantSide"
+                >
+                  <mat-option *ngFor="let side of lowerExtremityDominantSideEnum" [value]="side">
+                    {{ side }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field fxFlex="40">
+                <mat-label>Upper Extremity Dominant Side</mat-label>
+                <mat-select
+                  (selectionChange)="upperExtremityDominantSideSelection($event)"
+                  formControlName="upperExtremityDominantSide"
+                >
+                  <mat-option *ngFor="let side of upperExtremityDominantSideEnum" [value]="side">
+                    {{ side }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+              <mat-form-field fxFlex="40">
+                <mat-label>Lower Extremity Length</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  formControlName="lowerExtremityLength"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field fxFlex="40">
+                <mat-label>Upper Extremity Length</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  class="form-control"
+                  formControlName="upperExtremityLength"
+                  required
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="iss-button-row">
+            <div class="iss-nav-button-container">
+              <button mat-raised-button color="basic" matStepperPrevious>Previous</button>
+            </div>
+            <div class="iss-commit-button-container">
+              <button mat-raised-button color="primary" type="submit">Update</button>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+  </mat-stepper>
+</div>
