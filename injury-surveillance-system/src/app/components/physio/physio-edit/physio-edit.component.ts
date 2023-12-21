@@ -45,9 +45,7 @@ export class PhysioEditComponent implements OnInit {
   }
 
   updatePhysio() {
-    console.log('step 1');
     if (this.physioForm.valid) {
-      console.log('step 2');
       let updatedPhysio: PhysioRequest = new PhysioRequest();
       updatedPhysio.name = this.physioForm.get('name').value;
       updatedPhysio.surname = this.physioForm.get('surname').value;
