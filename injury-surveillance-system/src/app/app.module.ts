@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-edit.component';
+import { TeamCreateComponent } from './components/team/team-create/team-create.component';
+import { TeamListComponent } from './components/team/team-list/team-list.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-
     AthleteListComponent,
     AthleteCreateComponent,
     AthleteEditComponent,
+    TeamCreateComponent,
+    TeamListComponent,
   ],
   imports: [
     BrowserModule,
