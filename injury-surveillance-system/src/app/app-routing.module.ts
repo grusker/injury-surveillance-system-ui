@@ -7,6 +7,7 @@ import { PhysioCreateComponent } from './components/physio/physio-create/physio-
 import { PhysioListComponent } from './components/physio/physio-list/physio-list.component';
 import { PhysioEditComponent } from './components/physio/physio-edit/physio-edit.component';
 import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-edit.component';
+import { TeamListComponent } from './components/team/team-list/team-list.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'athlete/:athleteId/details',
     component: AthleteEditComponent
+  },
+  {
+    path: 'team-list',
+    component: TeamListComponent
   },
 ];
 
