@@ -87,17 +87,6 @@
                 required
               />
             </mat-form-field>
-            <mat-form-field fxFlex="25">
-              <mat-label>Physiotherapist</mat-label>
-              <mat-select
-                (selectionChange)="physioSelection($event)"
-                formControlName="physioId"
-              >
-                <mat-option *ngFor="let physio of physioList" [value]="physio.id">
-                  {{ physio.name }} {{ physio.surname }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
           </div>
         </div>
         <div class="iss-button-row">
@@ -110,7 +99,7 @@
         <div>
           <ng-template matStepLabel>Sport Information</ng-template>
           <div fxLayout="row" fxLayoutAlign="space-between stretch">
-            <mat-form-field fxFlex="40">
+            <mat-form-field fxFlex="25">
               <mat-label>Sport</mat-label>
               <mat-select 
                 (selectionChange)="branchSelection($event)"
@@ -121,15 +110,16 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field fxFlex="40">
+            <mat-form-field fxFlex="25">
               <mat-label>Team</mat-label>
-              <input
-                matInput
-                type="text"
-                class="form-control"
-                formControlName="team"
-                required
-              />
+              <mat-select
+                (selectionChange)="teamSelection($event)"
+                formControlName="teamId"
+              >
+                <mat-option *ngFor="let team of teamList" [value]="team.id">
+                  {{ team.name }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
           <div fxLayout="row" fxLayoutAlign="space-between stretch">
