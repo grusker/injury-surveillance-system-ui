@@ -8,6 +8,7 @@ import { PhysioListComponent } from './components/physio/physio-list/physio-list
 import { PhysioEditComponent } from './components/physio/physio-edit/physio-edit.component';
 import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-edit.component';
 import { TeamListComponent } from './components/team/team-list/team-list.component';
+import { TeamCreateComponent } from './components/team/team-create/team-create.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'team-list',
     component: TeamListComponent
   },
+  {
+    path: 'team-create',
+    component: TeamCreateComponent
+  }
 ];
 
 @NgModule({

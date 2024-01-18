@@ -1,1 +1,44 @@
-<p>team-create works!</p>
+<mat-toolbar-row>
+    <div class="content-header">Create Team</div>
+</mat-toolbar-row>
+
+<div class="iss-button-row">
+    <div class="iss-nav-button-container">
+      <button
+        mat-fab
+        color="primary"
+        routerLink="/team-list"
+        class="iss-table-button"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+</div>
+
+<div class="iss-form">
+    <form
+    [formGroup]="teamForm"
+    (ngSubmit)="createTeam()"
+    fxLayout="column"
+    fxLayoutAlign="space-between stretch"
+    >
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+        <mat-form-field fxFlex="50">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            formControlName="name"
+            required
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="iss-button-row">
+        <div class="iss-nav-button-container">
+          <button mat-raised-button color="primary" type="submit">Create</button>
+        </div>
+      </div>
+    </form>
+</div>
