@@ -2,7 +2,7 @@ import { SportBranch } from "./enums/SportBranch";
 
 export class SportInfoRequest {
     branch: SportBranch;
-    team: String;
+    teamId: Number;
     position: String;
     sportAge: Number;
     weeklyTrainingHours: Number;

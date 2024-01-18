@@ -8,7 +8,6 @@ export class AthleteRequest {
     mobile: String;
     age: Number;
     gender: String;
-    physioId: Number;
     sportInfo: SportInfoRequest;
     bodyInfo: BodyInfoRequest;
 }

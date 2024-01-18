@@ -3,4 +3,5 @@ export class PhysioRequest {
     surname: String;
     email: String;
     mobile: String;
+    teamId: Number;
 }
