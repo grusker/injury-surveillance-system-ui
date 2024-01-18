@@ -14,7 +14,7 @@ import { BodySide } from 'src/app/models/enums/BodySide';
 import { Gender } from 'src/app/models/enums/Gender';
 import { SportBranch } from 'src/app/models/enums/SportBranch';
 import { AthleteService } from 'src/app/services/athlete/athlete.service';
-import { PhysioService } from 'src/app/services/physio/physio.service';
+import { TeamService } from 'src/app/services/team/team.service';
 
 @Component({
   selector: 'app-athlete-edit',
@@ -29,22 +29,18 @@ export class AthleteEditComponent implements OnInit {
   athleteSportInfoForm: FormGroup;
   validMessage = '';
 
-  physioList = [];
+  teamList = [];
   genderEnum = [];
   dominantSideEnum = [];
   branchEnum = [];
   lowerExtremityDominantSideEnum = [];
   upperExtremityDominantSideEnum = [];
 
-  selectedPhysio;
-  selectedGender;
-  selectedDominantSide;
-
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private athleteService: AthleteService,
-    private physioService: PhysioService,
+    private teamService: TeamService,
     private router: Router
   ) {}
 
@@ -52,9 +48,9 @@ export class AthleteEditComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.athleteId = parseInt(params.get('athleteId'));
 
-      this.physioService.getPhysios().subscribe((data: any) => {
-        this.physioList = data;
-      });
+      this.teamService.getTeams().subscribe((data: any) => {
+        this.teamList = data;
+      })
 
       this.athleteService.getAthlete(this.athleteId).subscribe((data: any) => {
         this.athlete = data;
@@ -66,11 +62,10 @@ export class AthleteEditComponent implements OnInit {
           mobile: new FormControl(this.athlete.mobile, Validators.required),
           age: new FormControl(this.athlete.age, Validators.required),
           gender: new FormControl(this.athlete.gender, Validators.required),
-          physioId: new FormControl(this.athlete.physiotherapist.id, Validators.required),
         });
 
         this.athleteSportInfoForm = this.formBuilder.group({
-          team: new FormControl(this.athlete.sportInfo.team, Validators.required),
+          teamId: new FormControl(this.athlete.sportInfo.team, Validators.required),
           branch: new FormControl(this.athlete.sportInfo.branch, Validators.required),
           position: new FormControl(this.athlete.sportInfo.position, Validators.required),
           sportAge: new FormControl(this.athlete.sportInfo.sportAge, Validators.required),
@@ -96,9 +91,9 @@ export class AthleteEditComponent implements OnInit {
     });
   }
 
-  physioSelection(event: MatSelectChange) {
-    this.athletePersonalInfoForm.patchValue({
-      physioId: event.value,
+  teamSelection(event: MatSelectChange) {
+    this.athleteSportInfoForm.patchValue({
+      teamId: event.value,
     });
   }
 
@@ -138,7 +133,7 @@ export class AthleteEditComponent implements OnInit {
       this.athleteSportInfoForm.valid ) {
         let sportInfoRequest: SportInfoRequest = new SportInfoRequest();
         sportInfoRequest.branch = this.athleteSportInfoForm.get('branch').value;
-        sportInfoRequest.team = this.athleteSportInfoForm.get('team').value;
+        sportInfoRequest.teamId = this.athleteSportInfoForm.get('team').value;
         sportInfoRequest.position = this.athleteSportInfoForm.get('position').value;
         sportInfoRequest.sportAge = this.athleteSportInfoForm.get('sportAge').value;
         sportInfoRequest.weeklyTrainingHours = this.athleteSportInfoForm.get('weeklyTrainingHours').value;
@@ -161,7 +156,6 @@ export class AthleteEditComponent implements OnInit {
         athleteRequest.mobile = this.athletePersonalInfoForm.get('mobile').value;
         athleteRequest.age = this.athletePersonalInfoForm.get('age').value;
         athleteRequest.gender = this.athletePersonalInfoForm.get('gender').value;
-        athleteRequest.physioId = this.athletePersonalInfoForm.get('physioId').value;
         athleteRequest.sportInfo = sportInfoRequest;
         athleteRequest.bodyInfo = bodyInfoRequest;
 
