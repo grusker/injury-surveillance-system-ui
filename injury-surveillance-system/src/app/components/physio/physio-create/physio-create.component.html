@@ -46,29 +46,6 @@
     </div>
 
     <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex>
-        <mat-label>Email</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          formControlName="email"
-          required
-        />
-      </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex="40">
-        <mat-label>Mobile Phone</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          formControlName="mobile"
-          required
-        />
-      </mat-form-field>
       <mat-form-field fxFlex="40">
         <mat-label>Team</mat-label>
         <mat-select 
@@ -79,6 +56,28 @@
           {{ team.name }}
         </mat-option>
         </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <mat-label>Mobile Phone</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="mobile"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+      <mat-form-field fxFlex="40">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          formControlName="email"
+        />
       </mat-form-field>
     </div>
 

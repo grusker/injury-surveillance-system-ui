@@ -25,7 +25,7 @@ export class PhysioCreateComponent implements OnInit {
     this.physioForm = new FormGroup({
       name: new FormControl('', Validators.required),
       surname: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      email: new FormControl(''),
       mobile: new FormControl('', Validators.required),
       teamId: new FormControl('', Validators.required),
     });
