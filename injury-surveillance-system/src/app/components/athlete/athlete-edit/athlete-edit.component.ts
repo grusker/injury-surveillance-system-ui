@@ -53,33 +53,34 @@ export class AthleteEditComponent implements OnInit {
       })
 
       this.athleteService.getAthlete(this.athleteId).subscribe((data: any) => {
-        this.athlete = data;
 
         this.athletePersonalInfoForm = this.formBuilder.group({
-          name: new FormControl(this.athlete.name, Validators.required),
-          surname: new FormControl(this.athlete.surname, Validators.required),
-          email: new FormControl(this.athlete.email, Validators.required),
-          mobile: new FormControl(this.athlete.mobile, Validators.required),
-          age: new FormControl(this.athlete.age, Validators.required),
-          gender: new FormControl(this.athlete.gender, Validators.required),
+          name: new FormControl(data.name, Validators.required),
+          surname: new FormControl(data.surname, Validators.required),
+          email: new FormControl(data.email, Validators.required),
+          mobile: new FormControl(data.mobile, Validators.required),
+          age: new FormControl(data.age, Validators.required),
+          gender: new FormControl(data.gender, Validators.required),
         });
 
         this.athleteSportInfoForm = this.formBuilder.group({
-          teamId: new FormControl(this.athlete.sportInfo.team, Validators.required),
-          branch: new FormControl(this.athlete.sportInfo.branch, Validators.required),
-          position: new FormControl(this.athlete.sportInfo.position, Validators.required),
-          sportAge: new FormControl(this.athlete.sportInfo.sportAge, Validators.required),
-          weeklyTrainingHours: new FormControl(this.athlete.sportInfo.weeklyTrainingHours, Validators.required),
+          teamId: new FormControl(data.sportInfo.team, Validators.required),
+          branch: new FormControl(data.sportInfo.branch, Validators.required),
+          position: new FormControl(data.sportInfo.position, Validators.required),
+          sportAge: new FormControl(data.sportInfo.sportAge, Validators.required),
+          weeklyTrainingHours: new FormControl(data.sportInfo.weeklyTrainingHours, Validators.required),
         });
 
+        this.athleteSportInfoForm.get('teamId').setValue(data.sportInfo.team.id);
+
         this.athleteBodyInfoForm = this.formBuilder.group({
-          height: new FormControl(this.athlete.bodyInfo.height, Validators.required),
-          weight: new FormControl(this.athlete.bodyInfo.weight, Validators.required),
-          dominantSide: new FormControl(this.athlete.bodyInfo.dominantSide, Validators.required),
-          lowerExtremityDominantSide: new FormControl(this.athlete.bodyInfo.lowerExtremityDominantSide, Validators.required),
-          upperExtremityDominantSide: new FormControl(this.athlete.bodyInfo.upperExtremityDominantSide, Validators.required),
-          lowerExtremityLength: new FormControl(this.athlete.bodyInfo.lowerExtremityLength, Validators.required),
-          upperExtremityLength: new FormControl(this.athlete.bodyInfo.upperExtremityLength, Validators.required),
+          height: new FormControl(data.bodyInfo.height, Validators.required),
+          weight: new FormControl(data.bodyInfo.weight, Validators.required),
+          dominantSide: new FormControl(data.bodyInfo.dominantSide, Validators.required),
+          lowerExtremityDominantSide: new FormControl(data.bodyInfo.lowerExtremityDominantSide, Validators.required),
+          upperExtremityDominantSide: new FormControl(data.bodyInfo.upperExtremityDominantSide, Validators.required),
+          lowerExtremityLength: new FormControl(data.bodyInfo.lowerExtremityLength, Validators.required),
+          upperExtremityLength: new FormControl(data.bodyInfo.upperExtremityLength, Validators.required),
         });
       });
       
@@ -133,7 +134,7 @@ export class AthleteEditComponent implements OnInit {
       this.athleteSportInfoForm.valid ) {
         let sportInfoRequest: SportInfoRequest = new SportInfoRequest();
         sportInfoRequest.branch = this.athleteSportInfoForm.get('branch').value;
-        sportInfoRequest.teamId = this.athleteSportInfoForm.get('team').value;
+        sportInfoRequest.teamId = this.athleteSportInfoForm.get('teamId').value;
         sportInfoRequest.position = this.athleteSportInfoForm.get('position').value;
         sportInfoRequest.sportAge = this.athleteSportInfoForm.get('sportAge').value;
         sportInfoRequest.weeklyTrainingHours = this.athleteSportInfoForm.get('weeklyTrainingHours').value;
