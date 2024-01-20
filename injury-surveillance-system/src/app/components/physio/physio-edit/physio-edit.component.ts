@@ -44,7 +44,7 @@ export class PhysioEditComponent implements OnInit {
         this.physioForm = this.formBuilder.group({
           name: new FormControl(data.name, Validators.required),
           surname: new FormControl(data.surname, Validators.required),
-          email: new FormControl(data.email, Validators.required),
+          email: new FormControl(data.email),
           mobile: new FormControl(data.mobile, Validators.required),
           teamId: new FormControl(data.teamId, Validators.required),
         });
