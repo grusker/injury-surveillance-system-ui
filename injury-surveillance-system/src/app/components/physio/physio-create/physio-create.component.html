@@ -59,7 +59,7 @@
     </div>
 
     <div fxLayout="row" fxLayoutAlign="space-between stretch">
-      <mat-form-field fxFlex>
+      <mat-form-field fxFlex="40">
         <mat-label>Mobile Phone</mat-label>
         <input
           matInput
@@ -68,6 +68,17 @@
           formControlName="mobile"
           required
         />
+      </mat-form-field>
+      <mat-form-field fxFlex="40">
+        <mat-label>Team</mat-label>
+        <mat-select 
+          (selectionChange)="teamSelection($event)"
+          formControlName="teamId"
+        >
+        <mat-option *ngFor="let team of teamList" [value]="team.id">
+          {{ team.name }}
+        </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 
