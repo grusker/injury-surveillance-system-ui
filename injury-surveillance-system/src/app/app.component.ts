@@ -7,6 +7,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   isBigScreen = false;
+  loggedIn = false;
   title = 'injury-surveillance-system';
 
   ngOnInit() {
