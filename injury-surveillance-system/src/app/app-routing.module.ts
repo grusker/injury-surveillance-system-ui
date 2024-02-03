@@ -9,10 +9,15 @@ import { PhysioEditComponent } from './components/physio/physio-edit/physio-edit
 import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-edit.component';
 import { TeamListComponent } from './components/team/team-list/team-list.component';
 import { TeamCreateComponent } from './components/team/team-create/team-create.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
     component: HomeComponent
   },
   {
