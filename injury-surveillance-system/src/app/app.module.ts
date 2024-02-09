@@ -4,11 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { PhysioListComponent } from './components/physio/physio-list/physio-list.component';
-import { PhysioCreateComponent } from './components/physio/physio-create/physio-create.component';
-import { PhysioEditComponent } from './components/physio/physio-edit/physio-edit.component';
 import { AthleteService } from './services/athlete/athlete.service';
-import { PhysioService } from './services/physio/physio.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderInterceptor } from './interceptors/ResponseInterceptor';
@@ -22,15 +18,13 @@ import { TeamCreateComponent } from './components/team/team-create/team-create.c
 import { TeamListComponent } from './components/team/team-list/team-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PhysioModule } from './components/physio/physio.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    PhysioListComponent,
-    PhysioCreateComponent,
-    PhysioEditComponent,
     AthleteListComponent,
     AthleteCreateComponent,
     AthleteEditComponent,
@@ -41,15 +35,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
+    PhysioModule,
+    AppRoutingModule,
   ],
   providers: [
     AthleteService,
-    PhysioService,
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

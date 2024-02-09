@@ -8,7 +8,6 @@ import {
 import { MatSelectChange } from '@angular/material/select';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PhysioRequest } from 'src/app/models/PhysioRequest';
-import { TeamRequest } from 'src/app/models/TeamRequest';
 import { PhysioService } from 'src/app/services/physio/physio.service';
 import { TeamService } from 'src/app/services/team/team.service';
 
