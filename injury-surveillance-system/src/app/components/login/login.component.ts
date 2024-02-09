@@ -9,20 +9,20 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  form:FormGroup;
+  loginForm:FormGroup;
 
   constructor(private fb:FormBuilder, 
                private authService: AuthService, 
                private router: Router) {
 
-      this.form = this.fb.group({
+      this.loginForm = this.fb.group({
           email: ['',Validators.required],
           password: ['',Validators.required]
       });
   }
 
   login() {
-      const val = this.form.value;
+      const val = this.loginForm.value;
 
       if (val.email && val.password) {
           /* this.authService.login(val.email, val.password)
@@ -34,9 +34,9 @@ export class LoginComponent {
               );
               */
 
-          this.authService.authenticateUser(val.email, val.password);
+          //this.authService.authenticateUser(val.email, val.password);
           console.log("User is logged in");
-          //this.router.navigateByUrl('/');
+          this.router.navigate(['home']);
       }
   }
 

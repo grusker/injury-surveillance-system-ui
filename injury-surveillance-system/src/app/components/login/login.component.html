@@ -1,6 +1,11 @@
 <div class="login-container">
   <div class="login-box">
-    <form [formGroup]="form">
+    <form 
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+    fxLayout="column"
+    fxLayoutAlign="space-between stretch"
+    >
       <div fxLayout="row" fxLayoutAlign="space-between stretch">
         <mat-form-field fxFlex="100">
           <mat-label>Email</mat-label>
