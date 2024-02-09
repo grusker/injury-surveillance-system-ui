@@ -10,8 +10,14 @@ import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-
 import { TeamListComponent } from './components/team/team-list/team-list.component';
 import { TeamCreateComponent } from './components/team/team-create/team-create.component';
 import { LoginComponent } from './components/login/login.component';
+import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: AppComponent
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -51,7 +57,8 @@ const routes: Routes = [
   {
     path: 'team-create',
     component: TeamCreateComponent
-  }
+  },
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

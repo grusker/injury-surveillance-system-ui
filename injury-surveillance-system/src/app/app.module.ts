@@ -21,6 +21,7 @@ import { AthleteEditComponent } from './components/athlete/athlete-edit/athlete-
 import { TeamCreateComponent } from './components/team/team-create/team-create.component';
 import { TeamListComponent } from './components/team/team-list/team-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoginComponent } from './components/login/login.component';
     AthleteEditComponent,
     TeamCreateComponent,
     TeamListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
