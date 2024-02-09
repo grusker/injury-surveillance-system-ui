@@ -1,20 +1,32 @@
 <div class="login-container">
   <div class="login-box">
-    <h1>Login</h1>
-    <br />
     <form [formGroup]="form">
-      <fieldset>
-        <div class="login-field">
-          <label>Email:</label>
-          <input name="email" formControlName="email" />
-        </div>
-        <div class="login-field">
-          <label>Password:</label>
-          <input name="password" formControlName="password" type="password" />
-        </div>
-      </fieldset>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch">
+        <mat-form-field fxFlex="100">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            formControlName="email"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between stretch">
+        <mat-form-field fxFlex="100">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            formControlName="password"
+            required
+          />
+        </mat-form-field>
+      </div>
       <div class="form-buttons">
-        <button class="button button-primary" (click)="login()">Login</button>
+        <button mat-raised-button color="primary" type="submit">Login</button>
       </div>
     </form>
   </div>

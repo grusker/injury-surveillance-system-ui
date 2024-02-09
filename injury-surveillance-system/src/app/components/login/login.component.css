@@ -6,14 +6,16 @@
   }
   
   .login-box {
-    width: 300px;
-    padding: 20px;
+    width: 40vw;
+    padding: 3vw;
     border: 1px solid #ccc;
-    border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
-  .login-field {
-    padding: 10px; 
+  .form-buttons {
+    align-items: center;
+    button {
+      width: 100%;
+    }
   }
