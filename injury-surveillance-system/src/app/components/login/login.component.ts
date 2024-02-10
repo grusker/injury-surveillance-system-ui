@@ -36,7 +36,7 @@ export class LoginComponent {
 
           //this.authService.authenticateUser(val.email, val.password);
           console.log("User is logged in");
-          this.router.navigate(['home']);
+          this.router.navigate(['']);
       }
   }
 
