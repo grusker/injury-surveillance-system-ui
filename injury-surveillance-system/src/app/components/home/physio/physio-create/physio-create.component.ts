@@ -9,7 +9,7 @@ import { TeamService } from 'src/app/services/team/team.service';
 @Component({
   selector: 'app-physio-create',
   templateUrl: './physio-create.component.html',
-  styleUrls: ['./physio-create.component.css', '../../../app.component.css'],
+  styleUrls: ['./physio-create.component.css', '../../../../app.component.css'],
 })
 export class PhysioCreateComponent implements OnInit {
   physioForm: FormGroup;

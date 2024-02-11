@@ -6,17 +6,19 @@ import { AthleteEditComponent } from './athlete-edit/athlete-edit.component';
 
 const routes: Routes = [
   {
-    path: 'athlete-list',
-    component: AthleteListComponent
-  },
-  {
-    path: 'athlete-create',
-    component: AthleteCreateComponent
-  },
-  {
-    path: 'athlete/:athleteId/details',
-    component: AthleteEditComponent
-  },
+    path: '',
+    component: AthleteListComponent,
+    children: [
+      {
+        path: 'athlete-create',
+        component: AthleteCreateComponent
+      },
+      {
+        path: 'athlete/:athleteId/details',
+        component: AthleteEditComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

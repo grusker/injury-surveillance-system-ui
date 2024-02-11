@@ -10,10 +10,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
-  {path: '**', component: PageNotFoundComponent}
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

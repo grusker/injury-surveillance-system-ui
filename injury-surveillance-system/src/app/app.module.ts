@@ -12,9 +12,8 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { PhysioModule } from './components/physio/physio.module';
-import { AthleteModule } from './components/athlete/athlete.module';
-import { TeamModule } from './components/team/team.module';
+import { HomeModule } from './components/home/home.module';
+
 
 @NgModule({
   declarations: [
@@ -30,9 +29,7 @@ import { TeamModule } from './components/team/team.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    PhysioModule,
-    AthleteModule,
-    TeamModule,
+    HomeModule,
     AppRoutingModule,
   ],
   providers: [

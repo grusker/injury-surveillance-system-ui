@@ -14,7 +14,7 @@ import { TeamService } from 'src/app/services/team/team.service';
 @Component({
   selector: 'app-physio-edit',
   templateUrl: './physio-edit.component.html',
-  styleUrls: ['./physio-edit.component.css', '../../../app.component.css'],
+  styleUrls: ['./physio-edit.component.css', '../../../../app.component.css'],
 })
 export class PhysioEditComponent implements OnInit {
   public physioId: number;

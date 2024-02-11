@@ -14,7 +14,7 @@ import { TeamService } from 'src/app/services/team/team.service';
 @Component({
   selector: 'app-athlete-create',
   templateUrl: './athlete-create.component.html',
-  styleUrls: ['./athlete-create.component.css', '../../../app.component.css'],
+  styleUrls: ['./athlete-create.component.css', '../../../../app.component.css'],
 })
 export class AthleteCreateComponent implements OnInit {
   athletePersonalInfoForm: FormGroup;

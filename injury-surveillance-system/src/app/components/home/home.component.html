@@ -1,1 +1,35 @@
-WELCOME TO INJURY SURVEILLANCE SYSTEM
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-nav-list>
+            <!-- <a mat-list-item [routerLink]="'/'">
+                <span class="material-icons float:left">
+                    home
+                </span>
+                <span *ngIf="isBigScreen" class="float: right"> Home </span>
+            </a> -->
+            <a mat-list-item [routerLink]="'/teams'">
+                <span class="material-icons float:left">
+                    groups
+                </span>
+                <!-- <span *ngIf="isBigScreen" class="float:right"> Teams </span> -->
+            </a>
+            <a mat-list-item [routerLink]="'/physios'">
+                <span class="material-icons float:left">
+                    medication
+                </span>
+                <!-- <span *ngIf="isBigScreen" class="float: right"> Physios </span> -->
+            </a>
+            <a mat-list-item [routerLink]="'/athletes'">
+                <span class="material-icons float:left">
+                    directions_run
+                </span>
+                <!-- <span *ngIf="isBigScreen" class="float: right"> Athletes </span> -->
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 93vh">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

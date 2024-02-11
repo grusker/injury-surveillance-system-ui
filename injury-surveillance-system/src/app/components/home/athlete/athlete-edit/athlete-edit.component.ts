@@ -19,7 +19,7 @@ import { TeamService } from 'src/app/services/team/team.service';
 @Component({
   selector: 'app-athlete-edit',
   templateUrl: './athlete-edit.component.html',
-  styleUrls: ['./athlete-edit.component.css', '../../../app.component.css'],
+  styleUrls: ['./athlete-edit.component.css', '../../../../app.component.css'],
 })
 export class AthleteEditComponent implements OnInit {
   athleteId: number;

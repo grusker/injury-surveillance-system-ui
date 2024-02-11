@@ -5,12 +5,14 @@ import { TeamCreateComponent } from './team-create/team-create.component';
 
 const routes: Routes = [
   {
-    path: 'team-list',
-    component: TeamListComponent
-  },
-  {
-    path: 'team-create',
-    component: TeamCreateComponent
+    path: '',
+    component: TeamListComponent,
+    children: [
+      {
+        path: 'team-create',
+        component: TeamCreateComponent
+      }
+    ]
   }
 ];
 

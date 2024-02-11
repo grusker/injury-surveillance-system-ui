@@ -4,7 +4,7 @@ import { TeamService } from 'src/app/services/team/team.service';
 @Component({
   selector: 'app-team-list',
   templateUrl: './team-list.component.html',
-  styleUrls: ['./team-list.component.css', '../../../app.component.css']
+  styleUrls: ['./team-list.component.css', '../../../../app.component.css']
 })
 export class TeamListComponent implements OnInit {
   public teams: any;

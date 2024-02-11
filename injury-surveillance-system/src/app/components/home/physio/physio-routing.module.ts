@@ -6,17 +6,19 @@ import { PhysioEditComponent } from './physio-edit/physio-edit.component';
 
 const routes: Routes = [
   {
-    path: 'physio-list',
-    component: PhysioListComponent
-  },
-  {
-    path: 'physio-create',
-    component: PhysioCreateComponent
-  },
-  {
-    path: 'physio/:physioId/details',
-    component: PhysioEditComponent
-  },
+    path: '',
+    component: PhysioListComponent,
+    children: [
+      {
+        path: 'physio-create',
+        component: PhysioCreateComponent
+      },
+      {
+        path: 'physio/:physioId/details',
+        component: PhysioEditComponent
+      },
+    ]
+  }  
 ];
 
 @NgModule({
