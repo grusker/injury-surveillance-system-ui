@@ -50,7 +50,7 @@ export class PhysioCreateComponent implements OnInit {
         return true;
       });
       setTimeout(() => {
-        this.router.navigate(['physio-list']);
+        this.router.navigate(['physios']);
       },
       1000);
     } else {

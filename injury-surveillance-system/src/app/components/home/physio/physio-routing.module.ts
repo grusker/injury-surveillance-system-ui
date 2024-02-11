@@ -10,11 +10,11 @@ const routes: Routes = [
     component: PhysioListComponent,
     children: [
       {
-        path: 'physio-create',
+        path: 'create',
         component: PhysioCreateComponent
       },
       {
-        path: 'physio/:physioId/details',
+        path: ':physioId',
         component: PhysioEditComponent
       },
     ]

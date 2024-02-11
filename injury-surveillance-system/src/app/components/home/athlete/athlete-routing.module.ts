@@ -10,11 +10,11 @@ const routes: Routes = [
     component: AthleteListComponent,
     children: [
       {
-        path: 'athlete-create',
+        path: 'create',
         component: AthleteCreateComponent
       },
       {
-        path: 'athlete/:athleteId/details',
+        path: ':athleteId',
         component: AthleteEditComponent
       }
     ]

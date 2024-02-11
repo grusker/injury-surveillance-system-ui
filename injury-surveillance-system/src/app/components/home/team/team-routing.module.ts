@@ -9,7 +9,7 @@ const routes: Routes = [
     component: TeamListComponent,
     children: [
       {
-        path: 'team-create',
+        path: 'create',
         component: TeamCreateComponent
       }
     ]

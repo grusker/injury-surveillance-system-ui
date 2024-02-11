@@ -165,7 +165,7 @@ export class AthleteEditComponent implements OnInit {
         return true;
       });
       setTimeout(() => {
-        this.router.navigate(['athlete-list']);
+        this.router.navigate(['athletes']);
       },
       1000);
     } else {
