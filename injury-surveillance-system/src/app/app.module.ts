@@ -12,14 +12,13 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { HomeModule } from './components/home/home.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
+    HomeComponent,
     PageNotFoundComponent,
   ],
   imports: [
@@ -29,7 +28,6 @@ import { HomeModule } from './components/home/home.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HomeModule,
     AppRoutingModule,
   ],
   providers: [
