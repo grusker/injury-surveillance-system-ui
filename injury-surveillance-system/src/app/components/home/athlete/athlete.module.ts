@@ -7,19 +7,21 @@ import { AthleteCreateComponent } from './athlete-create/athlete-create.componen
 import { AthleteEditComponent } from './athlete-edit/athlete-edit.component';
 import { AthleteService } from 'src/app/services/athlete/athlete.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/material.module';
+import { AthleteComponent } from './athlete/athlete.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AthleteListComponent,
     AthleteCreateComponent,
-    AthleteEditComponent
+    AthleteEditComponent,
+    AthleteComponent
   ],
   imports: [
+    CommonModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MaterialModule,
     AthleteRoutingModule
   ],
