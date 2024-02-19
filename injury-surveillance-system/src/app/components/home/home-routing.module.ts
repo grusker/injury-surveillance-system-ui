@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { AthleteListComponent } from './athlete/athlete-list/athlete-list.component';
-import { PhysioListComponent } from './physio/physio-list/physio-list.component';
-import { TeamListComponent } from './team/team-list/team-list.component';
 
 const routes: Routes = [
   {
@@ -12,17 +9,17 @@ const routes: Routes = [
     children: [
       {
         path: 'athletes',
-        component: AthleteListComponent,
+        loadChildren: () => import('./athlete/athlete.module').then(m => m.AthleteModule),
       },
       {
         path: 'physios',
-        component: PhysioListComponent,
+        loadChildren: () => import('./physio/physio.module').then(m => m.PhysioModule),
       },
       {
         path: 'teams',
-        component: TeamListComponent,
+        loadChildren: () => import('./team/team.module').then(m => m.TeamModule),
       }
-    ] 
+    ]
   },
 ];
 
