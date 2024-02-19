@@ -3,26 +3,31 @@ import { RouterModule, Routes } from '@angular/router';
 import { PhysioListComponent } from './physio-list/physio-list.component';
 import { PhysioCreateComponent } from './physio-create/physio-create.component';
 import { PhysioEditComponent } from './physio-edit/physio-edit.component';
+import { PhysioComponent } from './physio/physio.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PhysioListComponent,
+    component: PhysioComponent,
     children: [
+      {
+        path: '',
+        component: PhysioListComponent
+      },
       {
         path: 'create',
         component: PhysioCreateComponent
       },
       {
-        path: ':physioId',
+        path: 'details/:physioId',
         component: PhysioEditComponent
-      },
+      }
     ]
-  }  
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PhysioRoutingModule { }
+export class PhysioRoutingModule {}
