@@ -5,19 +5,21 @@ import { TeamCreateComponent } from './team-create/team-create.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/material.module';
+import { TeamComponent } from './team/team.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     TeamCreateComponent,
     TeamListComponent,
+    TeamComponent,
   ],
   imports: [
+    CommonModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MaterialModule,
     TeamRoutingModule
   ]
