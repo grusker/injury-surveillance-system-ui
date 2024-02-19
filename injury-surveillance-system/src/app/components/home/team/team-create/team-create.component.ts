@@ -32,7 +32,7 @@ export class TeamCreateComponent implements OnInit {
         return true;
       });
       setTimeout(() => {
-        this.router.navigate(['teams']);
+        this.router.navigate(['/home/teams']);
       },
       1000);
     } else {
