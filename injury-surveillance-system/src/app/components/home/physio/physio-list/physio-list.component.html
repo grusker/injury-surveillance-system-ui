@@ -7,7 +7,7 @@
     <button
       mat-fab
       color="primary"
-      routerLink="/create"
+      routerLink="create"
       class="iss-table-button"
     >
       <mat-icon>add</mat-icon>
@@ -54,7 +54,7 @@
       <button
         mat-fab
         color="primary"
-        [routerLink]="['/physio', physio.id, 'details']">
+        [routerLink]="['details', physio.id]">
           <mat-icon>edit</mat-icon>
         </button>
     </td>

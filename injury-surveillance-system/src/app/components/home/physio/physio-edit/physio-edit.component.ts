@@ -66,7 +66,7 @@ export class PhysioEditComponent implements OnInit {
         return true;
       });
       setTimeout(() => {
-        this.router.navigate(['physios']);
+        this.router.navigate(['/home/physios']);
       }, 1000);
     } else {
       this.validMessage = 'Please fill the form!';
