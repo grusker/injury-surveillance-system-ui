@@ -152,7 +152,7 @@ export class AthleteCreateComponent implements OnInit {
         return true;
       });
       setTimeout(() => {
-        this.router.navigate(['athletes']);
+        this.router.navigate(['/home/athletes']);
       },
       1000);
     } else {
